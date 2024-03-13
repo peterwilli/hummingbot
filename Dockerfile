@@ -56,7 +56,7 @@ ENV INSTALLATION_TYPE=docker
 
 # Install system dependencies
 RUN apt-get update && \
-    apt-get install -y sudo libusb-1.0 && \
+    apt-get install -y sudo libusb-1.0 libsixel-bin && \
     rm -rf /var/lib/apt/lists/*
 
 # Create mount points
