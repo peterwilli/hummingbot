@@ -1,3 +1,21 @@
+# Modern Dragon Hoard
+
+This is my independent fork that maintains the Emerald Fund, it contains some extensions to the regular HummingBot, namely for Injective.
+
+If you see anything good, you are free to take it, but I'm no longer sending PRs to the HummingBot project, as it becomes mentally too exhausting.
+
+## What is the reason?
+
+For me when I do something for free it has to be fun, and it was, for a while, [but people are not providing feedback when asked](https://github.com/hummingbot/hummingbot/pull/6910#issuecomment-1997491038), [people are overwriting my PR's without an explanation why](https://github.com/hummingbot/hummingbot/pull/6920#issuecomment-2025090373), [and they also seem to be going against design principles which makes me at least wonder why they happen](https://github.com/hummingbot/hummingbot/pull/6920#issuecomment-2056887583).
+
+[They also leave my PR's hanging for a long time with no update](https://github.com/hummingbot/hummingbot/pull/6905).
+
+It may look unprofessional to simply stop collaborating over this, but this is different for me than business, this is fun, and while the team is amazing, [there are other open source projects that I do have a lot of fun contributing to](https://github.com/skiffos/SkiffOS/pull/310). So I decided to stop doing PR's here, keep the project up to date, but on my own terms independent of anyone that does not care about me.
+
+I decided to keep things to myself now, while still keeping them open for those that are interested.
+
+------
+
 ![Hummingbot](https://i.ibb.co/X5zNkKw/blacklogo-with-text.png)
 
 ----
