@@ -38,7 +38,7 @@ RUN python3 setup.py build_ext --inplace -j 8 && \
 FROM continuumio/miniconda3:latest AS release
 
 # Dockerfile author / maintainer
-LABEL maintainer="Fede Cardoso @dardonacci <federico@hummingbot.org>"
+LABEL maintainer="Peter Willemsen <peter@codebuffet.co>"
 
 # Build arguments
 ARG BRANCH=""
