@@ -38,7 +38,7 @@ RUN python3 setup.py build_ext --inplace -j 8 && \
 FROM continuumio/miniconda3:latest AS release
 
 # Dockerfile author / maintainer
-LABEL maintainer="Fede Cardoso @dardonacci <federico@hummingbot.org>"
+LABEL maintainer="Peter Willemsen <peter@codebuffet.co>"
 
 # Build arguments
 ARG BRANCH=""
@@ -57,7 +57,7 @@ ENV INSTALLATION_TYPE=docker
 
 # Install system dependencies
 RUN apt-get update && \
-    apt-get install -y sudo libusb-1.0 && \
+    apt-get install -y sudo libusb-1.0 libsixel-bin && \
     rm -rf /var/lib/apt/lists/*
 
 # Create mount points

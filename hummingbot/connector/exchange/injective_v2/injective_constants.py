@@ -11,7 +11,7 @@ DEFAULT_DOMAIN = ""
 TESTNET_DOMAIN = "testnet"
 
 MAX_ORDER_ID_LEN = 36  # Injective supports uuid style client ids (36 characters)
-HBOT_ORDER_ID_PREFIX = "HBOT"
+HBOT_ORDER_ID_PREFIX = "MDH"
 
 DEFAULT_SUBACCOUNT_INDEX = 0
 TX_GAS_PRICE = pyinjective.constant.GAS_PRICE
