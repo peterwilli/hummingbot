@@ -1,3 +1,4 @@
+use rust_decimal::prelude::*;
 use std::borrow::Cow;
 use strum::{Display, EnumString, IntoStaticStr};
 
@@ -10,7 +11,8 @@ pub enum TradeSide {
 pub struct Trade<'c> {
     pub base_asset: Cow<'c, str>,
     pub quote_asset: Cow<'c, str>,
-    pub amount: Cow<'c, str>,
-    pub price: Cow<'c, str>,
+    pub amount: Decimal,
+    pub price: Decimal,
+    pub timestamp: u64,
     pub side: TradeSide,
 }

@@ -6,6 +6,8 @@ use serde::{Deserialize, Serialize};
 #[serde(rename_all = "camelCase")]
 pub struct BotEntry<'c> {
     pub name: Cow<'c, str>,
+    /// For profit tracking
+    pub base_asset: Cow<'c, str>,
     pub trades_path: PathBuf,
 }
 
@@ -24,6 +26,7 @@ impl<'c> Default for Config<'c> {
             stats_channel_id: 39923329,
             bots: vec![BotEntry {
                 name: "TheBot".into(),
+                base_asset: "USDT".into(),
                 trades_path: PathBuf::from_str("/tmp/trades.csv").unwrap(),
             }],
         };
