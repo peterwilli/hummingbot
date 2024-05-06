@@ -60,13 +60,18 @@ async fn profit_chart(ctx: Context<'_, '_>) -> Result<(), Error> {
             .map(|line| Trade::from_line(line).unwrap())
             .filter_map(|trade| match trade.side {
                 TradeSide::Buy => {
-                    current_buy = trade.amount;
+                    current_buy = trade.amount * trade.price;
                     None
                 }
-                TradeSide::Sell => Some(profit_chart::ChartDataEntry {
-                    timestamp: trade.timestamp,
-                    profit: (trade.amount * trade.price) - current_buy,
-                }),
+                TradeSide::Sell => {
+                    if current_buy == Decimal::zero() {
+                        current_buy = trade.amount * trade.price;
+                    }
+                    Some(profit_chart::ChartDataEntry {
+                        timestamp: trade.timestamp,
+                        profit: (trade.amount * trade.price) - current_buy,
+                    })
+                }
             })
             .collect::<Vec<profit_chart::ChartDataEntry>>();
         drop(file_str);

@@ -67,7 +67,7 @@ const options = {
         fill: true,
         label: botData.baseAsset,
         backgroundColor: gradient,
-        pointBackgroundColor: colors.purple.default,
+        pointRadius: 0,
         borderColor: colors.purple.default,
         data: botData.chartData.map((entry) => {
           return {
@@ -77,7 +77,6 @@ const options = {
         }),
         lineTension: 0.2,
         borderWidth: 2,
-        pointRadius: 3,
       },
     ],
   },

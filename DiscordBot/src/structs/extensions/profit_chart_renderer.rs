@@ -1,5 +1,4 @@
 use std::{
-    char,
     sync::{atomic, Arc},
     thread::JoinHandle,
     time::Duration,
@@ -67,7 +66,7 @@ impl<'c> ProfitChartRenderer for profit_chart::ChartData<'c> {
                 y: 0.0,
                 width: 450.0 + (15.0 * 2.0),
                 height: 300.0 + (15.0 * 2.0),
-                scale: 1.0,
+                scale: 4.0,
             }),
             true,
         )?;
