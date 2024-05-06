@@ -54,6 +54,7 @@ async fn profit_chart(ctx: Context<'_, '_>) -> Result<(), Error> {
             )
             .await?;
         let mut current_buy = Decimal::zero();
+        let mut total_profit = Decimal::zero();
         let chart_data = file_str
             .lines()
             .skip(1)
@@ -67,9 +68,10 @@ async fn profit_chart(ctx: Context<'_, '_>) -> Result<(), Error> {
                     if current_buy == Decimal::zero() {
                         current_buy = trade.amount * trade.price;
                     }
+                    total_profit += (trade.amount * trade.price) - current_buy;
                     Some(profit_chart::ChartDataEntry {
                         timestamp: trade.timestamp,
-                        profit: (trade.amount * trade.price) - current_buy,
+                        profit: total_profit,
                     })
                 }
             })

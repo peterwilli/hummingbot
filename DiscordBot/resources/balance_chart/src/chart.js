@@ -6,6 +6,7 @@ import {
   Legend,
   PointElement,
   LineElement,
+  Decimation
 } from "chart.js";
 Chart.register(
   TimeScale,
@@ -14,6 +15,7 @@ Chart.register(
   Legend,
   PointElement,
   LineElement,
+  Decimation
 );
 import "chartjs-adapter-moment";
 
@@ -32,7 +34,6 @@ const colors = {
 const botDataStr = decodeURIComponent(window.location.hash.substring(1));
 const botData = JSON.parse(botDataStr);
 const ctx = document.querySelector(".chart canvas").getContext("2d");
-//  {"botName":"TheBot","chartData":[{"timestamp":1713260476000,"profit":"4.25412"},{"timestamp":1713269445000,"profit":"3.67900"},{"timestamp":1713278490000,"profit":"3.68933"},{"timestamp":1713280834000,"profit":"3.67661"},{"timestamp":1713282851000,"profit":"3.62997"},{"timestamp":1713284066000,"profit":"3.68334"}]}
 const gradient = ctx.createLinearGradient(0, 25, 0, 300);
 gradient.addColorStop(0, colors.purple.half);
 gradient.addColorStop(0.35, colors.purple.quarter);
@@ -72,24 +73,39 @@ const options = {
         data: botData.chartData.map((entry) => {
           return {
             x: entry.timestamp,
-            y: entry.profit,
+            y: parseFloat(entry.profit),
           };
         }),
-        lineTension: 0.2,
+        lineTension: 0.1,
         borderWidth: 2,
       },
     ],
   },
   options: {
+    animation: false,
+    parsing: false,
     shadowColor: "#e15bff",
     responsive: true,
     maintainAspectRatio: false,
     layout: {
       padding: 10,
     },
+    plugins: {
+      decimation: {
+        enabled: true,
+        algorithm: 'lttb',
+        samples: 1
+      }
+    },
     scales: {
       x: {
         type: "time",
+        ticks: {
+          source: 'auto',
+          // Disabled rotation for performance
+          maxRotation: 0,
+          autoSkip: true,
+        },
         title: {
           display: true,
           text: "Time",

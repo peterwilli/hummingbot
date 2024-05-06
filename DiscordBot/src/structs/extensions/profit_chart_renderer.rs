@@ -6,6 +6,7 @@ use std::{
 
 use anyhow::Result;
 use headless_chrome::{protocol::cdp::Page, Browser, LaunchOptionsBuilder};
+use log::debug;
 
 use crate::structs::profit_chart;
 
@@ -51,7 +52,7 @@ impl<'c> ProfitChartRenderer for profit_chart::ChartData<'c> {
         tab.set_transparent_background_color()?;
         let port = server.server_addr().to_ip().unwrap().port();
         let chart_json = serde_json::to_string(&self)?;
-        println!("chart_json: {}", chart_json);
+        debug!("chart_json: {}", chart_json);
         tab.navigate_to(&format!(
             "http://localhost:{}#{}",
             port,
