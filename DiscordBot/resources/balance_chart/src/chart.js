@@ -6,7 +6,7 @@ import {
   Legend,
   PointElement,
   LineElement,
-  Decimation
+  Decimation,
 } from "chart.js";
 Chart.register(
   TimeScale,
@@ -15,7 +15,7 @@ Chart.register(
   Legend,
   PointElement,
   LineElement,
-  Decimation
+  Decimation,
 );
 import "chartjs-adapter-moment";
 
@@ -65,7 +65,6 @@ const options = {
   data: {
     datasets: [
       {
-        fill: true,
         label: botData.baseAsset,
         backgroundColor: gradient,
         pointRadius: 0,
